@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "brand": "Amstel",
+    "name": "Amstel Bock",
+    "alcohol": 6.5,
+    "origin": "Netherlands",
+    "category": "Bock",
+    "image": "./assets/images/amstel-bock.jpg",
+    "description": "Πλούσια, σκούρα μπύρα με γλυκιά γεύση καραμέλας και φρούτων."
+  },
+  {
+    "id": 2,
+    "brand": "Heineken",
+    "name": "Heineken Lager",
+    "alcohol": 5.0,
+    "origin": "Netherlands",
+    "category": "Lager",
+    "image": "./assets/images/heineken.jpg",
+    "description": "Κλασική ελαφριά lager με φρεσκάδα και ελαφρώς πικρή γεύση."
+  },
+  {
+    "id": 3,
+    "brand": "Guinness",
+    "name": "Guinness Draught",
+    "alcohol": 4.2,
+    "origin": "Ireland",
+    "category": "Stout",
+    "image": "./assets/images/guinness.jpg",
+    "description": "Διάσημη μαύρη μπύρα με κρεμώδη υφή και γεύση καφέ, σοκολάτας."
+  },
+  {
+    "id": 4,
+    "brand": "Ολυμπιακή Ζυθοποιία",
+    "name": "Mythos",
+    "alcohol": 5.0,
+    "origin": "Greece",
+    "category": "Lager",
+    "image": "./assets/images/mythos-red.jpg",
+    "description": "Η σύγχρονη ελληνική lager με πλούσιο αφρό, λαμπερό ξανθό χρώμα και ευχάριστη δροσιστική γεύση."
+  },
+  {
+    "id": 5,
+    "brand": "Corona",
+    "name": "Corona Extra",
+    "alcohol": 4.6,
+    "origin": "Mexico",
+    "category": "Pale Lager",
+    "image": "./assets/images/corona.jpg",
+    "description": "Ελαφριά, αναψυκτική μπύρα με καθαρή γεύση, συνήθως σερβίρεται με λάιμ."
+  },
+  {
+    "id": 6,
+    "brand": "Leffe",
+    "name": "Leffe Blonde",
+    "alcohol": 6.6,
+    "origin": "Belgium",
+    "category": "Abbey Beer",
+    "image": "./assets/images/leffe.jpg",
+    "description": "Τραdition Belgian blonde με γλυκιά γεύση καραμέλας και μπαχαρικών."
+  },
+  {
+    "id": 7,
+    "brand": "Fix",
+    "name": "Fix Hellas",
+    "alcohol": 5.0,
+    "origin": "Greece",
+    "category": "Lager",
+    "image": "./assets/images/fix.jpg",
+    "description": "Ιστορική ελληνική μπύρα με ελαφριά γεύση και φρεσκάδα."
+  },
+  {
+    "id": 8,
+    "brand": "ΒΑΠ Π. ΚΟΥΓΙΟΣ Α.Β.Ε.Ε.",
+    "name": "ΒΑΠ",
+    "alcohol": 5.0,
+    "origin": "Greece",
+    "category": "Lager",
+    "image": "./assets/images/vap.jpg",
+    "description": "Eλληνική μπύρα με ελαφριά γεύση και φρεσκάδα."
+  },
+  {
+    "id": 9,
+    "brand": "Αθηναϊκή Ζυθοποιία",
+    "name": "Μαμος",
+    "alcohol": 5.0,
+    "origin": "Greece",
+    "category": "Lager",
+    "image": "./assets/images/mamos.jpg",
+    "description": "Eλληνική μπύρα με ελαφριά γεύση και φρεσκάδα."
+  },
+  {
+    "id": 10,
+    "brand": "",
+    "name": "Im so χαπι",
+    "alcohol": "",
+    "origin": "",
+    "category": "",
+    "image": "./assets/images/pills.jpg",
+    "description": "Προσοχή τα χάπια δεν κάνουν πάντα καλό."
+  },
+  {
+    "id": 11,
+    "brand": "",
+    "name": "Im so χαπι",
+    "alcohol": "",
+    "origin": "",
+    "category": "",
+    "image": "./assets/images/pills.jpg",
+    "description": "Προσοχή τα χάπια δεν κάνουν πάντα καλό."
+  },
+  {
+    "id": 12,
+    "brand": "",
+    "name": "joe's bar",
+    "alcohol": "",
+    "origin": "",
+    "category": "",
+    "image": "./assets/images/joker.jpg",
+    "description": "Ανέβασε το κέφι σου με την μπύρα του Joe."
+  },
+  {
+    "id": 13,
+    "brand": "Stella Artois",
+    "name": "Stella Artois Premium",
+    "alcohol": 5.0,
+    "origin": "Belgium",
+    "category": "Pilsner",
+    "image": "./assets/images/stella.jpg",
+    "description": "Μια κλασική Βελγική pilsner με ελαφριά γεύση και καθαρή ολοκλήρωση."
+  },
+  {
+    "id": 14,
+    "brand": "Erdinger",
+    "name": "Erdinger Weissbier",
+    "alcohol": 5.3,
+    "origin": "Germany",
+    "category": "Wheat Beer",
+    "image": "./assets/images/erdinger.jpg",
+    "description": "Βαυαρική μπύρα σιταριού με φρουτώδη γεύση και θολό χρώμα."
+  },
+  {
+    "id": 15,
+    "brand": "Chimay",
+    "name": "Chimay Red",
+    "alcohol": 7.0,
+    "origin": "Belgium",
+    "category": "Trappist",
+    "image": "./assets/images/chimay.jpg",
+    "description": "Πλούσια μπύρα Trappist με γεύσεις καραμέλας και σπασμένης ζάχαρης."
+  },
+  {
+    "id": 16,
+    "brand": "Sierra Nevada",
+    "name": "Sierra Nevada Pale Ale",
+    "alcohol": 5.6,
+    "origin": "USA",
+    "category": "Pale Ale",
+    "image": "./assets/images/sierra.jpg",
+    "description": "Διάσημη Αμερικανική pale ale με έντονο άρωμα λυκίσκου."
+  },
+  {
+    "id": 17,
+    "brand": "Paulaner",
+    "name": "Paulaner Hefe-Weissbier",
+    "alcohol": 5.5,
+    "origin": "Germany",
+    "category": "Wheat Beer",
+    "image": "./assets/images/paulaner.jpg",
+    "description": "Αυθεντική Βαυαρική μπύρα σιταριού με γεύση μπανανόφλουδας και γαρίφαλου."
+  },
+  {
+    "id": 18,
+    "brand": "Hoegaarden",
+    "name": "Hoegaarden Witbier",
+    "alcohol": 4.9,
+    "origin": "Belgium",
+    "category": "White Beer",
+    "image": "./assets/images/hoegaarden.jpg",
+    "description": "Αναψυκτική λευκή μπύρα με γεύσεις πορτοκαλιού και κόλιανδρου."
+  },
+  {
+    "id": 19,
+    "brand": "Brooklyn",
+    "name": "Brooklyn Lager",
+    "alcohol": 5.2,
+    "origin": "USA",
+    "category": "Amber Lager",
+    "image": "./assets/images/brooklyn.jpg",
+    "description": "Μπύρα με πορτοκαλί απόχρωση και ισορροπημένη γεύση καραμελωμένου μαλα."
+  },
+  {
+    "id": 20,
+    "brand": "Russian River Brewing Company",
+    "name": "Hopped Pliny The Elder",
+    "alcohol": 8.0,
+    "origin": "USA",
+    "category": "India Pale Ale",
+    "image": "./assets/images/pliny.jpg",
+    "description": "Είναι μια σπάνια απόλαυση για τους λάτρεις των πολύ λυκισκωμένων IPA."
+  },
+  {
+    "id": 21,
+    "brand": "Duvel",
+    "name": "Duvel Golden Ale",
+    "alcohol": 8.5,
+    "origin": "Belgium",
+    "category": "Strong Ale",
+    "image": "./assets/images/duvel.jpg",
+    "description": "Δυνατή χρυσή μπύρα με πολύπλοκη γεύση και ανάλαφρο σώμα."
+  },
+  {
+    "id": 22,
+    "brand": "Vergina",
+    "name": "Vergina Weiss",
+    "alcohol": 5.0,
+    "origin": "Greece",
+    "category": "Wheat Beer",
+    "image": "./assets/images/vergina.jpg",
+    "description": "Ελληνική μπύρα σιταριού με θολό χρώμα και φρουτώδη γεύση."
+  },
+  {
+    "id": 23,
+    "brand": "Asahi Breweries",
+    "name": "Pilsner Urquell",
+    "alcohol": 4.4,
+    "origin": "Czech Republic",
+    "category": "Pilsner",
+    "image": "./assets/images/urquell.jpg",
+    "description": "Η αυθεντική Pilsner από την πηγή (όπως μεταφράζεται και το όνομα της)"
+  },
+  {
+    "id": 24,
+    "brand": "Pivovar Velké Popovice",
+    "name": "Kozel Dark Lager",
+    "alcohol": 3.8,
+    "origin": "Czech Republic",
+    "category": "Lager",
+    "image": "./assets/images/kozel.jpg",
+    "description": "Είναι ελαφρώς γλυκιά, με χαμηλή περιεκτικότητα σε αλκοόλ και ένα ελαφρύ άρωμα καπνού."
+  }
+]

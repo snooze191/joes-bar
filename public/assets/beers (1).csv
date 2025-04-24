@@ -1,0 +1,25 @@
+id;brand;name;alcohol;origin;category;image;description
+1;Amstel;Amstel Bock;6.5;Netherlands;Bock;./assets/images/amstel-bock.jpg;Πλούσια, σκούρα μπύρα με γλυκιά γεύση καραμέλας και φρούτων.
+2;Heineken;Heineken Lager;5;Netherlands;Lager;./assets/images/heineken.jpg;Κλασική ελαφριά lager με φρεσκάδα και ελαφρώς πικρή γεύση.
+3;Guinness;Guinness Draught;4.2;Ireland;Stout;./assets/images/guinness.jpg;Διάσημη μαύρη μπύρα με κρεμώδη υφή και γεύση καφέ, σοκολάτας.
+4;Ολυμπιακή Ζυθοποιία;Mythos;5;Greece;Lager;./assets/images/mythos-red.jpg;Η σύγχρονη ελληνική lager με πλούσιο αφρό, λαμπερό ξανθό χρώμα και ευχάριστη δροσιστική γεύση.
+5;Corona;Corona Extra;4.6;Mexico;Pale Lager;./assets/images/corona.jpg;Ελαφριά, αναψυκτική μπύρα με καθαρή γεύση, συνήθως σερβίρεται με λάιμ.
+6;Leffe;Leffe Blonde;6.6;Belgium;Abbey Beer;./assets/images/leffe.jpg;Τραdition Belgian blonde με γλυκιά γεύση καραμέλας και μπαχαρικών.
+7;Fix;Fix Hellas;5;Greece;Lager;./assets/images/fix.jpg;Ιστορική ελληνική μπύρα με ελαφριά γεύση και φρεσκάδα.
+8;ΒΑΠ Π. ΚΟΥΓΙΟΣ Α.Β.Ε.Ε.;ΒΑΠ;5;Greece;Lager;./assets/images/vap.jpg;Eλληνική μπύρα με ελαφριά γεύση και φρεσκάδα.
+9;Αθηναϊκή Ζυθοποιία;Μαμος;5;Greece;Lager;./assets/images/mamos.jpg;Eλληνική μπύρα με ελαφριά γεύση και φρεσκάδα.
+10;;Im so χαπι;;;;./assets/images/pills.jpg;Προσοχή τα χάπια δεν κάνουν πάντα καλό.
+11;;Im so χαπι;;;;./assets/images/pills.jpg;Προσοχή τα χάπια δεν κάνουν πάντα καλό.
+12;;joe's bar;;;;./assets/images/joker.jpg;Ανέβασε το κέφι σου με την μπύρα του Joe.
+13;Stella Artois;Stella Artois Premium;5;Belgium;Pilsner;./assets/images/stella.jpg;Μια κλασική Βελγική pilsner με ελαφριά γεύση και καθαρή ολοκλήρωση.
+14;Erdinger;Erdinger Weissbier;5.3;Germany;Wheat Beer;./assets/images/erdinger.jpg;Βαυαρική μπύρα σιταριού με φρουτώδη γεύση και θολό χρώμα.
+15;Chimay;Chimay Red;7;Belgium;Trappist;./assets/images/chimay.jpg;Πλούσια μπύρα Trappist με γεύσεις καραμέλας και σπασμένης ζάχαρης.
+16;Sierra Nevada;Sierra Nevada Pale Ale;5.6;USA;Pale Ale;./assets/images/sierra.jpg;Διάσημη Αμερικανική pale ale με έντονο άρωμα λυκίσκου.
+17;Paulaner;Paulaner Hefe-Weissbier;5.5;Germany;Wheat Beer;./assets/images/paulaner.jpg;Αυθεντική Βαυαρική μπύρα σιταριού με γεύση μπανανόφλουδας και γαρίφαλου.
+18;Hoegaarden;Hoegaarden Witbier;4.9;Belgium;White Beer;./assets/images/hoegaarden.jpg;Αναψυκτική λευκή μπύρα με γεύσεις πορτοκαλιού και κόλιανδρου.
+19;Brooklyn;Brooklyn Lager;5.2;USA;Amber Lager;./assets/images/brooklyn.jpg;Μπύρα με πορτοκαλί απόχρωση και ισορροπημένη γεύση καραμελωμένου μαλα.
+20;Russian River Brewing Company;Hopped Pliny The Elder;8;USA;India Pale Ale;./assets/images/pliny.jpg;Είναι μια σπάνια απόλαυση για τους λάτρεις των πολύ λυκισκωμένων IPA.
+21;Duvel;Duvel Golden Ale;8.5;Belgium;Strong Ale;./assets/images/duvel.jpg;Δυνατή χρυσή μπύρα με πολύπλοκη γεύση και ανάλαφρο σώμα.
+22;Vergina;Vergina Weiss;5;Greece;Wheat Beer;./assets/images/vergina.jpg;Ελληνική μπύρα σιταριού με θολό χρώμα και φρουτώδη γεύση.
+23;Asahi Breweries;Pilsner Urquell;4.4;Czech Republic;Pilsner;./assets/images/urquell.jpg;Η αυθεντική Pilsner από την πηγή (όπως μεταφράζεται και το όνομα της)
+24;Pivovar Velké Popovice;Kozel Dark Lager;3.8;Czech Republic;Lager;./assets/images/kozel.jpg;Είναι ελαφρώς γλυκιά, με χαμηλή περιεκτικότητα σε αλκοόλ και ένα ελαφρύ άρωμα καπνού.
