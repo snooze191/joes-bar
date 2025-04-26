@@ -1,50 +1,18 @@
 <div
-  class="mx-auto grid h-screen max-w-md overflow-hidden rounded-2xl px-3 py-6 md:max-w-4xl md:px-6"
+  *ngIf="randomMessage as msg"
+  class="p-4 text-center text-lg font-semibold text-green-600"
 >
-  <div class="self-center">
-    <!-- Random beers display -->
-    <div class="mb-12">
-      <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6"></div>
-    </div>
+  Μήνυμα τύπου "{{ msg.type }}": {{ msg.text }}
+</div>
 
-    <!-- Alcohol progress bar -->
-    <div class="flex items-center gap-4">
-      <div
-        class="h-1.5 w-full rounded-2xl bg-gradient-to-r from-green-500 via-orange-500 to-red-500"
-      >
-        <div id="alcoholBar"></div>
-      </div>
-    </div>
-
-    <div class="my-12 flex items-center justify-center">
-      <div class="flex items-center gap-2">
-        <div>
-          <img class="h-12 w-auto" src="./assets/images/glass.png" alt="" />
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-amber-600 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-rose-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-green-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="fixed right-0 bottom-10 left-0"></div>
-    <router-outlet></router-outlet>
+<div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
+  <div *ngFor="let beer of beers" class="rounded border bg-white p-4 shadow">
+    <img [src]="beer.image" class="mb-2 h-48 w-full rounded object-cover" />
+    <h2 class="text-xl font-bold">{{ beer.name }}</h2>
+    <p class="text-sm text-gray-500">{{ beer.brand }} - {{ beer.origin }}</p>
+    <p class="text-sm">Αλκοόλ: {{ beer.alcohol }}%</p>
+    <p class="mt-2 text-sm">{{ beer.description }}</p>
   </div>
 </div>
+
+<router-outlet></router-outlet>

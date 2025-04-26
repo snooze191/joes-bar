@@ -1,12 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; // ✅ ΑΠΑΡΑΙΤΗΤΟ για *ngIf, *ngFor
+import { BeerService } from '../app/services/supabase/beer.service';
+import { MessageService } from '../app/services/supabase/message.service';
+import { Database } from './supabase-types';
 import { RouterOutlet } from '@angular/router';
+
+type Beer = Database['public']['Tables']['beers']['Row'];
+type Message = Database['public']['Tables']['messages']['Row'];
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet], // ✅ CommonModule προστίθεται εδώ
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'joes-bar';
+  beers: Beer[] = [];
+  randomMessage: Message | null = null;
+
+  constructor(
+    private beerService: BeerService,
+    private messageService: MessageService,
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    this.beers = await this.beerService.getBeers();
+    this.randomMessage =
+      await this.messageService.getRandomMessageByType('tip');
+  }
 }
