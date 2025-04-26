@@ -4,6 +4,7 @@ import { BeerService } from '../app/services/supabase/beer.service';
 import { MessageService } from '../app/services/supabase/message.service';
 import { Database } from './supabase-types';
 import { RouterOutlet } from '@angular/router';
+import { BeerBubblesComponent } from './components/beer-bubbles/beer-bubbles.component';
 
 type Beer = Database['public']['Tables']['beers']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
@@ -17,7 +18,7 @@ enum SpecialBeerId {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, BeerBubblesComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
