@@ -1,0 +1,44 @@
+import { Injectable } from '@angular/core';
+import { SupabaseClient } from '@supabase/supabase-js';
+import { SupabaseService } from './supabase.service';
+import { Database } from '../../supabase-types';
+
+type User = Database['public']['Tables']['users']['Row'];
+type UpdateUser = Database['public']['Tables']['users']['Update'];
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UserService {
+  private supabase: SupabaseClient<Database>;
+
+  constructor(private supabaseService: SupabaseService) {
+    this.supabase = this.supabaseService.client;
+  }
+
+  async getUserScore(userId: string): Promise<number | null> {
+    const { data, error } = await this.supabase
+      .from('users')
+      .select('score')
+      .eq('id', userId)
+      .single();
+
+    if (error) {
+      console.error('Σφάλμα λήψης score:', error.message);
+      return null;
+    }
+
+    return data?.score ?? null;
+  }
+
+  async updateUserScore(userId: string, newScore: number): Promise<void> {
+    const { error } = await this.supabase
+      .from('users')
+      .update({ score: newScore } as UpdateUser)
+      .eq('id', userId);
+
+    if (error) {
+      console.error('Σφάλμα ενημέρωσης score:', error.message);
+    }
+  }
+}

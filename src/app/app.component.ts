@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BeerService } from '../app/services/supabase/beer.service';
-import { MessageService } from '../app/services/supabase/message.service';
-import { Database } from './supabase-types';
 import { RouterOutlet } from '@angular/router';
 import { BeerBubblesComponent } from './components/beer-bubbles/beer-bubbles.component';
+import { BeerService } from '../app/services/supabase/beer.service';
+import { MessageService } from '../app/services/supabase/message.service';
+import { UserService } from './services/supabase/user.service';
+import { Database } from './supabase-types';
 
 type Beer = Database['public']['Tables']['beers']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
   beers: Beer[] = [];
   randomBeers: Beer[] = [];
   randomMessage: Message | null = null;
-
+  currentHighScore = 0;
   totalAlcohol = 0;
   selectionCount = 0;
   readonly initialMaxAlcohol = 27.5;
@@ -40,13 +41,14 @@ export class AppComponent implements OnInit {
   constructor(
     private beerService: BeerService,
     private messageService: MessageService,
+    private userService: UserService,
   ) {}
 
   async ngOnInit(): Promise<void> {
+    await this.fetchHighScore();
     try {
       this.beers = await this.beerService.getBeers();
-      this.randomMessage =
-        await this.messageService.getRandomMessageByType('fun');
+      await this.loadRandomMessage();
       this.generateRandomBeers();
     } catch (err) {
       this.error = 'Αποτυχία φόρτωσης δεδομένων';
@@ -95,9 +97,14 @@ export class AppComponent implements OnInit {
 
     if (this.getAlcoholPercentage() >= 100) {
       this.gameOver = true;
+      this.updateHighScoreIfNeeded(this.selectionCount).catch((err) => {
+        console.error('Σφάλμα κατά την αποθήκευση high score:', err);
+      });
     } else {
       this.generateRandomBeers();
     }
+
+    this.loadRandomMessage(); // ✨ Κάθε φορά που παίζεις, νέο μήνυμα!
   }
 
   private applyBeerEffect(beer: Beer, duplicateCount: number): void {
@@ -152,6 +159,25 @@ export class AppComponent implements OnInit {
       : SpecialBeerId.DecreaseAlcoholRandomly;
   }
 
+  private async fetchHighScore(): Promise<void> {
+    const score = await this.userService.getUserScore(
+      'd6b7129b-8ede-483c-90d6-e116a7f5ba3b',
+    );
+    if (score !== null) {
+      this.currentHighScore = score;
+    }
+  }
+
+  private async updateHighScoreIfNeeded(selectionCount: number): Promise<void> {
+    if (selectionCount > this.currentHighScore) {
+      await this.userService.updateUserScore(
+        'd6b7129b-8ede-483c-90d6-e116a7f5ba3b',
+        selectionCount,
+      );
+      this.currentHighScore = selectionCount;
+    }
+  }
+
   getAlcoholPercentage(): number {
     return Math.min((this.totalAlcohol / this.maxAlcohol) * 100, 100);
   }
@@ -163,5 +189,27 @@ export class AppComponent implements OnInit {
     this.shouldInsertSpecialCard = false;
     this.maxAlcohol = this.initialMaxAlcohol;
     this.generateRandomBeers();
+    this.loadRandomMessage(); // ✨ νέο μήνυμα όταν ξεκινάς καινούριο παιχνίδι!
+  }
+
+  private async loadRandomMessage(): Promise<void> {
+    try {
+      const percentage = this.getAlcoholPercentage();
+      let types: string[] = [];
+
+      if (percentage < 40) {
+        types = ['fun', 'info'];
+      } else if (percentage < 80) {
+        types = ['info', 'tip'];
+      } else {
+        types = ['warning', 'tip'];
+      }
+
+      const randomType = types[Math.floor(Math.random() * types.length)];
+      this.randomMessage =
+        await this.messageService.getRandomMessageByType(randomType);
+    } catch (error) {
+      console.error('Σφάλμα φόρτωσης τυχαίου μηνύματος:', error);
+    }
   }
 }

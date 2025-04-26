@@ -1,8 +1,13 @@
 <div
   class="mx-auto grid h-screen max-w-md overflow-hidden px-3 py-6 md:max-w-4xl md:px-6"
 >
+  <div class="self-start">
+    <div class="text-xl font-bold text-white">
+      High Score: {{ currentHighScore }}
+    </div>
+  </div>
   <div
-    class="relative self-center rounded-3xl bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
+    class="relative self-start rounded-3xl border-2 border-slate-950 bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
   >
     <app-beer-bubbles></app-beer-bubbles>
     <!-- Random beers display -->
@@ -54,16 +59,16 @@
       </div>
     </div>
 
-    <!-- Random fun message -->
+    <!-- message -->
     <div
       *ngIf="randomMessage as msg"
-      class="t mt-6 p-4 text-center font-semibold text-white"
+      class="my-6 p-4 text-center text-sm font-semibold text-white"
     >
-      {{ msg.type }}: {{ msg.text }}
+      {{ msg.text }}
     </div>
 
     <!-- Game over screen -->
-    <div *ngIf="gameOver" class="fixed inset-0 text-center">
+    <div *ngIf="gameOver" class="fixed right-0 bottom-6 left-0 text-center">
       <h2 class="text-2xl font-bold text-red-600">Game Over!</h2>
       <button (click)="newGame()" class="btn">Ξεκίνα νέο παιχνίδι</button>
     </div>
