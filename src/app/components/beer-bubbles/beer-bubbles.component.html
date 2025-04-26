@@ -1,0 +1,13 @@
+<div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+  <div
+    *ngFor="let bubble of bubbles"
+    class="beer-bubble absolute bottom-0 rounded-full"
+    [ngStyle]="{
+      width: bubble.size + 'px',
+      height: bubble.size + 'px',
+      left: bubble.left + '%',
+      animation:
+        'rise ' + bubble.duration + 's infinite ease-in ' + bubble.delay + 's',
+    }"
+  ></div>
+</div>
