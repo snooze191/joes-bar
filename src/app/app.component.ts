@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // ✅ ΑΠΑΡΑΙΤΗΤΟ για *ngIf, *ngFor
+import { CommonModule } from '@angular/common';
 import { BeerService } from '../app/services/supabase/beer.service';
 import { MessageService } from '../app/services/supabase/message.service';
 import { Database } from './supabase-types';
@@ -10,8 +10,8 @@ type Message = Database['public']['Tables']['messages']['Row'];
 
 @Component({
   selector: 'app-root',
-
-  imports: [CommonModule, RouterOutlet], // ✅ CommonModule προστίθεται εδώ
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
