@@ -29,12 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -70,8 +65,8 @@
               "buildTarget": "joes-bar:build:development"
             }
           },
-          "defaultConfiguration": "development"
-        },
+          "defaultConfiguration": "development",
+        },        
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
@@ -97,5 +92,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0c9fa282-1a83-4b4c-8018-525445ef8cdf"
   }
 }
