@@ -3,9 +3,12 @@
 >
   <div class="self-center">
     <!-- Random beers display -->
-
     <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6">
-      <div *ngFor="let beer of randomBeers">
+      <div
+        class="card mb-4 cursor-pointer"
+        *ngFor="let beer of randomBeers"
+        (click)="selectBeer(beer)"
+      >
         <div class="relative">
           <div class="hidden">{{ beer.id }}</div>
           <img [src]="beer.image" [alt]="beer.name" class="mx-auto" />
@@ -39,41 +42,66 @@
     </div>
 
     <!-- Alcohol progress bar -->
-    <div class="flex items-center gap-4">
-      <div
-        class="h-1.5 w-full rounded-2xl bg-gradient-to-r from-green-500 via-orange-500 to-red-500"
-      ></div>
+    <div class="mt-6 flex items-center gap-4">
+      <div class="h-1.5 w-full rounded-2xl bg-gray-200">
+        <div
+          class="h-full rounded-2xl bg-gradient-to-r from-green-500 via-orange-500 to-red-500 transition-all duration-500"
+          [style.width.%]="getAlcoholPercentage()"
+        ></div>
+      </div>
+      <span class="text-sm font-bold text-gray-700">
+        {{ getAlcoholPercentage() | number: "1.0-0" }}%
+      </span>
     </div>
+
+    <!-- Random fun message -->
     <div
       *ngIf="randomMessage as msg"
-      class="p-4 text-center text-lg font-semibold text-green-600"
+      class="t mt-6 p-4 text-center font-semibold text-white"
     >
-      Μήνυμα τύπου "{{ msg.type }}": {{ msg.text }}
+      {{ msg.type }}: {{ msg.text }}
     </div>
+
+    <!-- Game over screen -->
+    <div *ngIf="gameOver" class="mt-6 text-center">
+      <h2 class="text-2xl font-bold text-red-600">Game Over!</h2>
+      <button
+        (click)="newGame()"
+        class="mt-4 rounded-lg bg-green-500 px-6 py-2 font-semibold text-white hover:bg-green-600"
+      >
+        Ξεκίνα νέο παιχνίδι
+      </button>
+    </div>
+
+    <!-- Glass and colored squares -->
     <div class="my-12 flex items-center justify-center">
       <div class="flex items-center gap-2">
         <div>
-          <img class="h-12 w-auto" src="./assets/images/glass.png" alt="" />
+          <img
+            class="h-12 w-auto"
+            src="./assets/images/glass.png"
+            alt="Glass"
+          />
         </div>
         <div class="grid aspect-square h-12 rounded-lg bg-amber-600 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
+          <div class="self-center text-center text-xl font-bold text-white">
+            {{ totalAlcohol | number: "1.1-1" }}
+          </div>
         </div>
         <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
+          <div class="self-center text-center text-xl font-bold text-white">
+            {{ selectionCount }}
+          </div>
         </div>
         <div class="grid aspect-square h-12 rounded-lg bg-rose-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
+          <div class="self-center text-center text-xl font-bold text-white">
+            {{ maxAlcohol | number: "1.1-1" }}
+          </div>
         </div>
         <div class="grid aspect-square h-12 rounded-lg bg-green-500 p-2">
-          <div
-            class="self-center text-center text-xl font-bold text-white"
-          ></div>
+          <div class="self-center text-center text-xl font-bold text-white">
+            {{ getAlcoholPercentage() | number: "1.0-0" }}%
+          </div>
         </div>
       </div>
     </div>
