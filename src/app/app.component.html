@@ -1,18 +1,83 @@
 <div
-  *ngIf="randomMessage as msg"
-  class="p-4 text-center text-lg font-semibold text-green-600"
+  class="mx-auto grid h-screen max-w-md overflow-hidden rounded-2xl px-3 py-6 md:max-w-4xl md:px-6"
 >
-  Μήνυμα τύπου "{{ msg.type }}": {{ msg.text }}
-</div>
+  <div class="self-center">
+    <!-- Random beers display -->
 
-<div class="grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
-  <div *ngFor="let beer of beers" class="rounded border bg-white p-4 shadow">
-    <img [src]="beer.image" class="mb-2 h-48 w-full rounded object-cover" />
-    <h2 class="text-xl font-bold">{{ beer.name }}</h2>
-    <p class="text-sm text-gray-500">{{ beer.brand }} - {{ beer.origin }}</p>
-    <p class="text-sm">Αλκοόλ: {{ beer.alcohol }}%</p>
-    <p class="mt-2 text-sm">{{ beer.description }}</p>
+    <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6">
+      <div *ngFor="let beer of randomBeers">
+        <div class="relative">
+          <div class="hidden">{{ beer.id }}</div>
+          <img [src]="beer.image" [alt]="beer.name" class="mx-auto" />
+          <div
+            *ngIf="
+              beer.alcohol !== null &&
+              beer.alcohol !== undefined &&
+              beer.alcohol > 0
+            "
+            class="absolute right-2.5 bottom-2.5 rounded-full bg-gradient-to-b from-slate-200 from-40% to-slate-50 text-sm font-bold shadow-md"
+          >
+            <div class="grid aspect-square h-12">
+              <div class="self-center text-center">
+                {{ beer.alcohol | number: "1.2-2" }}%
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="mt-2 text-center text-xs font-bold uppercase md:text-sm">
+          {{ beer.name }}
+        </h3>
+        <p class="text-center text-sm font-semibold text-amber-700">
+          {{ beer.origin }} {{ beer.category }}
+        </p>
+        <div
+          class="my-4 hidden self-end text-center text-xs text-gray-600 md:block"
+        >
+          {{ beer.description }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Alcohol progress bar -->
+    <div class="flex items-center gap-4">
+      <div
+        class="h-1.5 w-full rounded-2xl bg-gradient-to-r from-green-500 via-orange-500 to-red-500"
+      ></div>
+    </div>
+    <div
+      *ngIf="randomMessage as msg"
+      class="p-4 text-center text-lg font-semibold text-green-600"
+    >
+      Μήνυμα τύπου "{{ msg.type }}": {{ msg.text }}
+    </div>
+    <div class="my-12 flex items-center justify-center">
+      <div class="flex items-center gap-2">
+        <div>
+          <img class="h-12 w-auto" src="./assets/images/glass.png" alt="" />
+        </div>
+        <div class="grid aspect-square h-12 rounded-lg bg-amber-600 p-2">
+          <div
+            class="self-center text-center text-xl font-bold text-white"
+          ></div>
+        </div>
+        <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
+          <div
+            class="self-center text-center text-xl font-bold text-white"
+          ></div>
+        </div>
+        <div class="grid aspect-square h-12 rounded-lg bg-rose-500 p-2">
+          <div
+            class="self-center text-center text-xl font-bold text-white"
+          ></div>
+        </div>
+        <div class="grid aspect-square h-12 rounded-lg bg-green-500 p-2">
+          <div
+            class="self-center text-center text-xl font-bold text-white"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
   </div>
 </div>
-
-<router-outlet></router-outlet>

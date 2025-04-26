@@ -18,6 +18,7 @@ type Message = Database['public']['Tables']['messages']['Row'];
 export class AppComponent implements OnInit {
   title = 'joes-bar';
   beers: Beer[] = [];
+  randomBeers: Beer[] = [];
   randomMessage: Message | null = null;
 
   constructor(
@@ -29,5 +30,16 @@ export class AppComponent implements OnInit {
     this.beers = await this.beerService.getBeers();
     this.randomMessage =
       await this.messageService.getRandomMessageByType('tip');
+    this.randomBeers = this.getRandomBeers(3);
+  }
+
+  // Μέθοδος για επιλογή 3 τυχαίων μπυρών
+  getRandomBeers(count: number): Beer[] {
+    const randomBeers: Beer[] = [];
+    for (let i = 0; i < count; i++) {
+      const randomIndex = Math.floor(Math.random() * this.beers.length);
+      randomBeers.push(this.beers[randomIndex]);
+    }
+    return randomBeers;
   }
 }
