@@ -11,8 +11,8 @@ type Beer = Database['public']['Tables']['beers']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
 
 enum SpecialBeerId {
-  IncreaseAlcoholRandomly = 11,
   DecreaseAlcoholRandomly = 10,
+  IncreaseAlcoholRandomly = 11,
   ResetAlcohol = 12,
 }
 

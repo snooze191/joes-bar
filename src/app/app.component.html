@@ -56,8 +56,9 @@
       <!-- Random beers display -->
       <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6">
         <div
-          class="card mb-4 cursor-pointer"
-          *ngFor="let beer of randomBeers"
+          class="card animate-fade-in mb-4 translate-y-2 cursor-pointer opacity-0"
+          [style.animation-delay]="i * 100 + 'ms'"
+          *ngFor="let beer of randomBeers; let i = index"
           (click)="selectBeer(beer)"
         >
           <div class="relative">
@@ -85,9 +86,14 @@
             {{ beer.origin }} {{ beer.category }}
           </p>
           <div
+            *ngIf="beer.description"
             class="relative my-4 hidden self-end text-center text-xs text-gray-600 lg:block"
           >
-            {{ beer.description }}
+            {{
+              beer.description.length > 50
+                ? (beer.description | slice: 0 : 50) + "..."
+                : beer.description
+            }}
           </div>
         </div>
       </div>
