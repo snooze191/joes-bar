@@ -1,13 +1,37 @@
 <div
   class="mx-auto grid h-screen max-w-md overflow-hidden px-3 py-6 md:max-w-4xl md:px-6"
 >
-  <div class="self-start">
-    <div class="text-xl font-bold text-white">
+  <div class="mb-4 flex items-center justify-between self-end">
+    <div class="text-2xl font-bold text-white uppercase">
       High Score: {{ currentHighScore }}
+    </div>
+    <!-- Modal -->
+    <div
+      *ngIf="gameOver"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60"
+    >
+      <div
+        class="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-2xl"
+      >
+        <h2 class="mb-4 text-3xl font-bold text-rose-600">Game Over!</h2>
+        <p class="mb-6 text-gray-600">Θες να ξαναπροσπαθήσεις;</p>
+        <button (click)="newGame()" class="btn">Ξεκίνα νέο παιχνίδι</button>
+      </div>
+    </div>
+
+    <div class="flex gap-4">
+      <div>
+        <img class="h-12 w-auto" src="./assets/images/glass.png" alt="Glass" />
+      </div>
+      <div class="grid aspect-square h-12 rounded-full bg-amber-600 p-2">
+        <div class="self-center text-center text-xl font-bold text-white">
+          {{ selectionCount }}
+        </div>
+      </div>
     </div>
   </div>
   <div
-    class="relative self-start rounded-3xl border-2 border-slate-950 bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
+    class="relative self-start rounded-3xl border-2 border-amber-600 bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
   >
     <app-beer-bubbles></app-beer-bubbles>
     <!-- Random beers display -->
@@ -51,9 +75,9 @@
 
     <!-- Alcohol progress bar -->
     <div class="mt-6 flex items-center gap-4">
-      <div class="h-4 w-full rounded-md bg-slate-950">
+      <div class="h-2 w-full rounded-md bg-slate-950">
         <div
-          class="h-full rounded-md bg-gradient-to-r from-green-500 via-orange-500 to-red-500 transition-all duration-500"
+          class="h-full rounded-lg bg-gradient-to-r from-green-500 via-orange-500 to-red-500 transition-all duration-500"
           [style.width.%]="getAlcoholPercentage()"
         ></div>
       </div>
@@ -64,30 +88,12 @@
       *ngIf="randomMessage as msg"
       class="my-6 p-4 text-center text-sm font-semibold text-white"
     >
-      {{ msg.text }}
-    </div>
-
-    <!-- Game over screen -->
-    <div *ngIf="gameOver" class="fixed right-0 bottom-6 left-0 text-center">
-      <h2 class="text-2xl font-bold text-red-600">Game Over!</h2>
-      <button (click)="newGame()" class="btn">Ξεκίνα νέο παιχνίδι</button>
+      {{ msg.type }} : {{ msg.text }}
     </div>
 
     <!-- Glass and colored squares -->
-    <div class="flex items-center justify-center">
+    <div class="hidden items-center justify-center">
       <div class="flex items-center gap-2">
-        <div>
-          <img
-            class="h-12 w-auto"
-            src="./assets/images/glass.png"
-            alt="Glass"
-          />
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-amber-600 p-2">
-          <div class="self-center text-center text-xl font-bold text-white">
-            {{ selectionCount }}
-          </div>
-        </div>
         <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
           <div class="self-center text-center text-xl font-bold text-white">
             {{ totalAlcohol | number: "1.1-1" }}
