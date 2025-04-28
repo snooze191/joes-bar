@@ -1,0 +1,363 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.1",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "8037249353422744134"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "10175894702052279752"
+      },
+      {
+        "file": ".postcssrc.json",
+        "hash": "17460548602263189673"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "13409999142693975176"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "11934160580685414355"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "17406702432687230417"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "13211163821510782215"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "10093397977228577162"
+      },
+      {
+        "file": "README.md",
+        "hash": "11597929958561129790"
+      },
+      {
+        "file": "angular.json",
+        "hash": "11625733389447297342"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "13325773689891127030"
+      },
+      {
+        "file": "package.json",
+        "hash": "2077405421775192923"
+      },
+      {
+        "file": "public/assets/beers (1).csv",
+        "hash": "2825827046517424028"
+      },
+      {
+        "file": "public/assets/beers.csv",
+        "hash": "2825827046517424028"
+      },
+      {
+        "file": "public/assets/beers.json",
+        "hash": "7846593399143734733"
+      },
+      {
+        "file": "public/assets/images/alfa.jpg",
+        "hash": "2581319137916012069"
+      },
+      {
+        "file": "public/assets/images/amstel-bock.jpg",
+        "hash": "12377725748187733717"
+      },
+      {
+        "file": "public/assets/images/amstel-bock.png",
+        "hash": "13180419020823310505"
+      },
+      {
+        "file": "public/assets/images/brooklyn.jpg",
+        "hash": "9634028166030742467"
+      },
+      {
+        "file": "public/assets/images/chimay.jpg",
+        "hash": "13856043156877727178"
+      },
+      {
+        "file": "public/assets/images/corona.jpg",
+        "hash": "18323416639462692990"
+      },
+      {
+        "file": "public/assets/images/craft-ipa.jpg",
+        "hash": "16247291357133490097"
+      },
+      {
+        "file": "public/assets/images/duvel.jpg",
+        "hash": "14917111679466248788"
+      },
+      {
+        "file": "public/assets/images/erdinger.jpg",
+        "hash": "4315270656143043750"
+      },
+      {
+        "file": "public/assets/images/fix.jpg",
+        "hash": "5422853383360677701"
+      },
+      {
+        "file": "public/assets/images/glass.png",
+        "hash": "10498902423549427784"
+      },
+      {
+        "file": "public/assets/images/guinness.jpg",
+        "hash": "3021141134812120785"
+      },
+      {
+        "file": "public/assets/images/heineken.jpg",
+        "hash": "132585477299573717"
+      },
+      {
+        "file": "public/assets/images/hoegaarden.jpg",
+        "hash": "4765948285809585567"
+      },
+      {
+        "file": "public/assets/images/joker.jpg",
+        "hash": "12529256030865730101"
+      },
+      {
+        "file": "public/assets/images/kozel.jpg",
+        "hash": "2491088941822413163"
+      },
+      {
+        "file": "public/assets/images/leffe.jpg",
+        "hash": "5885781730521711940"
+      },
+      {
+        "file": "public/assets/images/logo.png",
+        "hash": "5507730137572002001"
+      },
+      {
+        "file": "public/assets/images/mamos.jpg",
+        "hash": "5481261505060216164"
+      },
+      {
+        "file": "public/assets/images/mythos-red.jpg",
+        "hash": "2306374437108513659"
+      },
+      {
+        "file": "public/assets/images/paulaner.jpg",
+        "hash": "8588194949813591670"
+      },
+      {
+        "file": "public/assets/images/pills.jpg",
+        "hash": "10147295766010238385"
+      },
+      {
+        "file": "public/assets/images/pinta-barrel.jpg",
+        "hash": "17419118459791661195"
+      },
+      {
+        "file": "public/assets/images/pliny.jpg",
+        "hash": "11227869006665938636"
+      },
+      {
+        "file": "public/assets/images/sierra.jpg",
+        "hash": "5669922837118776331"
+      },
+      {
+        "file": "public/assets/images/stella.jpg",
+        "hash": "9950117523363665259"
+      },
+      {
+        "file": "public/assets/images/urquell.jpg",
+        "hash": "6055478704314687091"
+      },
+      {
+        "file": "public/assets/images/vap.jpg",
+        "hash": "10064862817943473867"
+      },
+      {
+        "file": "public/assets/images/vergina.jpg",
+        "hash": "13752701364869456121"
+      },
+      {
+        "file": "public/assets/message.csv",
+        "hash": "18162049177499706157"
+      },
+      {
+        "file": "public/assets/message.json",
+        "hash": "11850446558719827143"
+      },
+      {
+        "file": "public/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "src/app/app.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/app.component.html",
+        "hash": "9059968551393822125"
+      },
+      {
+        "file": "src/app/app.component.spec.ts",
+        "hash": "12654333261382356977"
+      },
+      {
+        "file": "src/app/app.component.ts",
+        "hash": "15077147300724956019"
+      },
+      {
+        "file": "src/app/app.config.ts",
+        "hash": "4496664947537417665"
+      },
+      {
+        "file": "src/app/app.routes.ts",
+        "hash": "809736233805555256"
+      },
+      {
+        "file": "src/app/components/beer-bubbles/beer-bubbles.component.css",
+        "hash": "1200119760512042002"
+      },
+      {
+        "file": "src/app/components/beer-bubbles/beer-bubbles.component.html",
+        "hash": "9472375458747064122"
+      },
+      {
+        "file": "src/app/components/beer-bubbles/beer-bubbles.component.spec.ts",
+        "hash": "5064496171516915270"
+      },
+      {
+        "file": "src/app/components/beer-bubbles/beer-bubbles.component.ts",
+        "hash": "1436369885794125782"
+      },
+      {
+        "file": "src/app/components/high-score/high-score.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/components/high-score/high-score.component.html",
+        "hash": "16424876029483216758"
+      },
+      {
+        "file": "src/app/components/high-score/high-score.component.spec.ts",
+        "hash": "12924624865806826854"
+      },
+      {
+        "file": "src/app/components/high-score/high-score.component.ts",
+        "hash": "5754652960405362991"
+      },
+      {
+        "file": "src/app/components/login/login.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/components/login/login.component.html",
+        "hash": "17867980221530361052"
+      },
+      {
+        "file": "src/app/components/login/login.component.spec.ts",
+        "hash": "10730385221617188498"
+      },
+      {
+        "file": "src/app/components/login/login.component.ts",
+        "hash": "17809292092992743144"
+      },
+      {
+        "file": "src/app/components/message-display/message-display.component.css",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/components/message-display/message-display.component.html",
+        "hash": "1222490787718499196"
+      },
+      {
+        "file": "src/app/components/message-display/message-display.component.spec.ts",
+        "hash": "14136476021289021939"
+      },
+      {
+        "file": "src/app/components/message-display/message-display.component.ts",
+        "hash": "5813207030763630107"
+      },
+      {
+        "file": "src/app/services/supabase/auth.service.spec.ts",
+        "hash": "6927655796975040699"
+      },
+      {
+        "file": "src/app/services/supabase/auth.service.ts",
+        "hash": "16458930299205889811"
+      },
+      {
+        "file": "src/app/services/supabase/beer.service.spec.ts",
+        "hash": "4277587089733546213"
+      },
+      {
+        "file": "src/app/services/supabase/beer.service.ts",
+        "hash": "3975833363107903442"
+      },
+      {
+        "file": "src/app/services/supabase/message.service.spec.ts",
+        "hash": "372667071105035724"
+      },
+      {
+        "file": "src/app/services/supabase/message.service.ts",
+        "hash": "2361218257035528064"
+      },
+      {
+        "file": "src/app/services/supabase/supabase.service.spec.ts",
+        "hash": "5583603804467978969"
+      },
+      {
+        "file": "src/app/services/supabase/supabase.service.ts",
+        "hash": "1617177366079154777"
+      },
+      {
+        "file": "src/app/services/supabase/user.service.spec.ts",
+        "hash": "18148047139486964869"
+      },
+      {
+        "file": "src/app/services/supabase/user.service.ts",
+        "hash": "7363465449220221873"
+      },
+      {
+        "file": "src/app/supabase-types.ts",
+        "hash": "17884537864603861342"
+      },
+      {
+        "file": "src/environment/environment.prod.ts",
+        "hash": "16260862688433081251"
+      },
+      {
+        "file": "src/environment/environment.ts",
+        "hash": "16260862688433081251"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "5170225190909349830"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "4680994988513417228"
+      },
+      {
+        "file": "src/styles.css",
+        "hash": "2381782459174620755"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "17664692556340536255"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "5540552589929968073"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "11023685540591620072"
+      }
+    ]
+  }
+}

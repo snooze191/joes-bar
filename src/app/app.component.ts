@@ -6,6 +6,7 @@ import { BeerService } from '../app/services/supabase/beer.service';
 import { Database } from './supabase-types';
 import { HighScoreComponent } from './components/high-score/high-score.component';
 import { MessageDisplayComponent } from './components/message-display/message-display.component';
+import { LoginComponent } from './components/login/login.component';
 
 type Beer = Database['public']['Tables']['beers']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
@@ -25,6 +26,7 @@ enum SpecialBeerId {
     BeerBubblesComponent,
     HighScoreComponent,
     MessageDisplayComponent,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

@@ -1,10 +1,15 @@
 <div class="fixed top-0 right-0 left-0 px-4 py-2">
   <div class="flex items-center justify-between">
-    <div class="font-bold text-slate-300">{{ title }}</div>
+    <div class="">
+      <img class="h-20" src="./assets/images/logo.png" alt="{{ title }}" />
+    </div>
 
     <div class="flex items-center gap-4">
       <app-high-score></app-high-score>
-      <div class="grid aspect-square h-10 rounded-full bg-slate-400">
+      <a
+        routerLink="/login"
+        class="grid aspect-square h-10 cursor-pointer rounded-full bg-slate-400 transition-colors hover:bg-slate-500"
+      >
         <svg
           viewBox="0 0 24 24"
           class="mx-auto flex aspect-square h-6 self-center fill-none stroke-white stroke-[1.5]"
@@ -12,10 +17,11 @@
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-      </div>
+      </a>
     </div>
   </div>
 </div>
+
 <!-- Modal -->
 <div
   *ngIf="gameOver"
@@ -34,7 +40,7 @@
       class="relative rounded-3xl border-2 border-amber-600 bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
     >
       <div class="mb-4 flex items-center justify-between">
-        <div class=""></div>
+        <div class=""><app-login></app-login></div>
         <div class="h-12">
           <div *ngIf="selectionCount > 0" class="flex gap-4">
             <div>
