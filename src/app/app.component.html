@@ -1,144 +1,172 @@
-<div class="fixed top-0 right-0 left-0 px-4 py-2">
-  <div class="flex items-center justify-between">
-    <div class="">
-      <img class="h-20" src="./assets/images/logo.png" alt="{{ title }}" />
-    </div>
-
-    <div class="flex items-center gap-4">
-      <app-high-score></app-high-score>
-      <a
-        routerLink="/login"
-        class="grid aspect-square h-10 cursor-pointer rounded-full bg-slate-400 transition-colors hover:bg-slate-500"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          class="mx-auto flex aspect-square h-6 self-center fill-none stroke-white stroke-[1.5]"
-        >
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div
-  *ngIf="gameOver"
-  class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60"
->
-  <div class="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-2xl">
-    <h2 class="mb-4 text-3xl font-bold text-rose-600">Game Over!</h2>
-    <p class="mb-6 text-gray-600">Θες να ξαναπροσπαθήσεις;</p>
-    <button (click)="newGame()" class="btn">Ξεκίνα νέο παιχνίδι</button>
-  </div>
-</div>
-<div class="grid h-screen gap-4 overflow-hidden lg:grid-cols-15">
-  <div class="col-span-4"></div>
-  <div class="col-span-7 grid self-center">
+<div class="flex min-h-screen flex-col overflow-y-hidden">
+  <main class="@container my-6">
     <div
-      class="relative rounded-3xl border-2 border-amber-600 bg-gradient-to-b from-amber-500 via-yellow-500 to-amber-700 p-8"
+      class="@8xl:mx-6 mx-2 my-12 grid gap-6 self-start md:grid-cols-4 md:grid-rows-2"
     >
-      <div class="mb-4 flex items-center justify-between">
-        <div class=""><app-login></app-login></div>
-        <div class="h-12">
-          <div *ngIf="selectionCount > 0" class="flex gap-4">
-            <div>
-              <img
-                class="h-12 w-auto"
-                src="./assets/images/glass.png"
-                alt="Glass"
-              />
-            </div>
-            <div class="grid aspect-square h-12 rounded-full bg-amber-600 p-2">
-              <div class="self-center text-center text-xl font-bold text-white">
-                {{ selectionCount }}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div
+        class="card order-last col-span-1 row-span-1 rounded-bl-4xl bg-sky-700 text-xl font-semibold text-white"
+      >
+        <h3 class="">Tips</h3>
+        <!-- message -->
+        <app-message-display></app-message-display>
       </div>
-      <app-beer-bubbles></app-beer-bubbles>
-      <!-- Random beers display -->
-      <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6">
-        <div
-          class="card animate-fade-in mb-4 translate-y-2 cursor-pointer opacity-0"
-          [style.animation-delay]="i * 100 + 'ms'"
-          *ngFor="let beer of randomBeers; let i = index"
-          (click)="selectBeer(beer)"
-        >
-          <div class="relative">
-            <div class="hidden">{{ beer.id }}</div>
-            <img [src]="beer.image" [alt]="beer.name" class="mx-auto" />
-            <div
-              *ngIf="
-                beer.alcohol !== null &&
-                beer.alcohol !== undefined &&
-                beer.alcohol > 0
-              "
-              class="absolute right-2.5 bottom-2.5 rounded-full bg-gradient-to-b from-slate-200 from-40% to-slate-50 text-sm font-bold shadow-md"
-            >
-              <div class="grid aspect-square h-12">
-                <div class="self-center text-center">
-                  {{ beer.alcohol | number: "1.2-2" }}%
+      <div
+        class="card col-span-1 row-span-1 rounded-tl-4xl bg-amber-700 text-white"
+      >
+        <h3 class="">Scores</h3>
+        <app-high-score></app-high-score>
+      </div>
+      <div
+        class="card relative col-span-2 row-span-2 rounded-tr-4xl rounded-bl-4xl bg-gradient-to-br from-amber-500 from-0% via-yellow-500 via-40% to-amber-700 to-100%"
+      >
+        <div class="mb-4 flex items-center justify-between">
+          <div class=""></div>
+          <div class="h-12">
+            <div *ngIf="selectionCount > 0" class="flex gap-4">
+              <div>
+                <img
+                  class="h-12 w-auto"
+                  src="./assets/images/glass.png"
+                  alt="Glass"
+                />
+              </div>
+              <div
+                class="grid aspect-square h-12 rounded-full bg-amber-600 p-2"
+              >
+                <div
+                  class="self-center text-center text-xl font-bold text-white"
+                >
+                  {{ selectionCount }}
                 </div>
               </div>
             </div>
           </div>
-          <h3 class="mt-2 text-center text-xs font-bold uppercase md:text-sm">
-            {{ beer.name }}
-          </h3>
-          <p class="text-center text-sm font-semibold text-amber-700">
-            {{ beer.origin }} {{ beer.category }}
-          </p>
+        </div>
+        <app-beer-bubbles></app-beer-bubbles>
+        <!-- Random beers display -->
+        <div class="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-6">
           <div
-            *ngIf="beer.description"
-            class="relative my-4 hidden self-end text-center text-xs text-gray-600 lg:block"
+            class="card-b animate-fade-in mb-4 translate-y-2 cursor-pointer opacity-0"
+            [style.animation-delay]="i * 100 + 'ms'"
+            *ngFor="let beer of randomBeers; let i = index"
+            (click)="selectBeer(beer)"
           >
-            {{
-              beer.description.length > 50
-                ? (beer.description | slice: 0 : 50) + "..."
-                : beer.description
-            }}
+            <div class="relative">
+              <div class="hidden">{{ beer.id }}</div>
+              <img [src]="beer.image" [alt]="beer.name" class="mx-auto" />
+              <div
+                *ngIf="
+                  beer.alcohol !== null &&
+                  beer.alcohol !== undefined &&
+                  beer.alcohol > 0
+                "
+                class="absolute right-2.5 bottom-2.5 rounded-full bg-gradient-to-b from-slate-200 from-40% to-slate-50 text-sm font-bold shadow-md"
+              >
+                <div class="grid aspect-square h-12">
+                  <div class="self-center text-center">
+                    {{ beer.alcohol | number: "1.2-2" }}%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mt-2 text-center text-xs font-bold uppercase md:text-sm"
+            >
+              {{ beer.name }}
+            </div>
+            <p class="text-center text-sm font-semibold text-amber-700">
+              {{ beer.origin }} {{ beer.category }}
+            </p>
+            <div
+              *ngIf="beer.description"
+              class="relative my-4 hidden self-end text-center text-xs text-gray-600 lg:block"
+            >
+              {{
+                beer.description.length > 50
+                  ? (beer.description | slice: 0 : 50) + "..."
+                  : beer.description
+              }}
+            </div>
           </div>
         </div>
+
+        <!-- Alcohol progress bar -->
+        <div class="mt-6 flex items-center gap-4">
+          <div class="h-2 w-full rounded-md bg-slate-950">
+            <div
+              class="h-full rounded-lg bg-gradient-to-r from-green-500 via-orange-500 to-red-500 transition-all duration-500"
+              [style.width.%]="getAlcoholPercentage()"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card col-span-1 row-span-2 rounded-br-4xl bg-green-800 text-white"
+      >
+        <h3 class="">Selections</h3>
+        <div class="items-center justify-center">
+          <div class="flex items-center gap-2">
+            <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
+              <div class="self-center text-center text-xl font-bold text-white">
+                {{ totalAlcohol | number: "1.1-1" }}
+              </div>
+            </div>
+            <div class="grid aspect-square h-12 rounded-lg bg-rose-500 p-2">
+              <div class="self-center text-center text-xl font-bold text-white">
+                {{ maxAlcohol | number: "1.1-1" }}
+              </div>
+            </div>
+            <div class="grid aspect-square h-12 rounded-lg bg-green-500 p-2">
+              <div class="self-center text-center text-xl font-bold text-white">
+                {{ getAlcoholPercentage() | number: "1.0-0" }}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="fixed top-0 right-0 left-0 px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="text-2xl font-bold text-white">
+        {{ title }}
       </div>
 
-      <!-- Alcohol progress bar -->
-      <div class="mt-6 flex items-center gap-4">
-        <div class="h-2 w-full rounded-md bg-slate-950">
-          <div
-            class="h-full rounded-lg bg-gradient-to-r from-green-500 via-orange-500 to-red-500 transition-all duration-500"
-            [style.width.%]="getAlcoholPercentage()"
-          ></div>
-        </div>
+      <div class="flex items-center gap-4">
+        <div class=""><app-login></app-login></div>
+        <a
+          routerLink="/login"
+          class="grid aspect-square h-10 cursor-pointer rounded-full bg-slate-400 transition-colors hover:bg-slate-500"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="mx-auto flex aspect-square h-6 self-center fill-none stroke-white stroke-[1.5]"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
       </div>
+    </div>
+  </div>
 
-      <!-- message -->
-      <app-message-display></app-message-display>
+  <!-- Modal -->
+  <div
+    *ngIf="gameOver"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60"
+  >
+    <div
+      class="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-2xl"
+    >
+      <h2 class="mb-4 text-3xl font-bold text-rose-600">Game Over!</h2>
+      <p class="mb-6 text-gray-600">Θες να ξαναπροσπαθήσεις;</p>
+      <button (click)="newGame()" class="btn">Ξεκίνα νέο παιχνίδι</button>
     </div>
   </div>
-  <div class="col-span-4 self-center">
-    <!-- Glass and colored squares -->
-    <div class="items-center justify-center">
-      <div class="flex items-center gap-2">
-        <div class="grid aspect-square h-12 rounded-lg bg-sky-500 p-2">
-          <div class="self-center text-center text-xl font-bold text-white">
-            {{ totalAlcohol | number: "1.1-1" }}
-          </div>
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-rose-500 p-2">
-          <div class="self-center text-center text-xl font-bold text-white">
-            {{ maxAlcohol | number: "1.1-1" }}
-          </div>
-        </div>
-        <div class="grid aspect-square h-12 rounded-lg bg-green-500 p-2">
-          <div class="self-center text-center text-xl font-bold text-white">
-            {{ getAlcoholPercentage() | number: "1.0-0" }}%
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <router-outlet></router-outlet>
+  <footer class="mt-auto py-6 text-center text-xs text-white">
+    © 2025 {{ title }} - Μεθύστε υπεύθηνα
+  </footer>
 </div>
-<router-outlet></router-outlet>

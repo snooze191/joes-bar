@@ -7,7 +7,7 @@ import { AuthService } from '../../services/supabase/auth.service';
     <button
       type="button"
       (click)="signInWithGoogle()"
-      class="me-2 mb-2 inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:ring-4 focus:ring-[#4285F4]/50 focus:outline-none dark:focus:ring-[#4285F4]/55"
+      class="me-2 mb-2 inline-flex items-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:ring-4 focus:ring-[#4285F4]/50 focus:outline-none dark:focus:ring-[#4285F4]/55"
     >
       <svg
         class="me-2 h-4 w-4"

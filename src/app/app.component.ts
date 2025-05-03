@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
   @ViewChild(MessageDisplayComponent)
   messageDisplayComponent!: MessageDisplayComponent;
 
-  title = 'joes-bar';
+  title = 'joesBar';
   beers$!: Observable<Beer[]>;
   randomBeers: Beer[] = [];
   totalAlcohol = 0;

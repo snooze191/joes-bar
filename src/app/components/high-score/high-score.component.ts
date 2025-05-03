@@ -6,7 +6,7 @@ import { UserService } from '../../services/supabase/user.service';
   selector: 'app-high-score',
   standalone: true,
   template: `
-    <div class="text-sm font-bold text-slate-300 uppercase">
+    <div class="text-sm font-bold text-white uppercase">
       High Score: {{ currentHighScore }}
     </div>
   `,
