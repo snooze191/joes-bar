@@ -16,19 +16,19 @@ export class UserService {
     this.supabase = this.supabaseService.client;
   }
 
-  async getUserScore(userId: string): Promise<number | null> {
+  async getUser(userId: string): Promise<User | null> {
     const { data, error } = await this.supabase
       .from('users')
-      .select('score')
+      .select('*')
       .eq('id', userId)
       .single();
 
     if (error) {
-      console.error('Σφάλμα λήψης score:', error.message);
+      console.error('Σφάλμα λήψης χρήστη:', error.message);
       return null;
     }
 
-    return data?.score ?? null;
+    return data;
   }
 
   async updateUserScore(userId: string, newScore: number): Promise<void> {

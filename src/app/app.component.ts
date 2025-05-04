@@ -8,6 +8,7 @@ import { HighScoreComponent } from './components/high-score/high-score.component
 import { MessageDisplayComponent } from './components/message-display/message-display.component';
 import { LoginComponent } from './components/login/login.component';
 import { Observable } from 'rxjs';
+import { PlayerHistoryComponent } from './components/player-history/player-history.component';
 
 type Beer = Database['public']['Tables']['beers']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
@@ -28,6 +29,7 @@ enum SpecialBeerId {
     HighScoreComponent,
     MessageDisplayComponent,
     LoginComponent,
+    PlayerHistoryComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -48,6 +50,7 @@ export class AppComponent implements OnInit {
   shouldInsertSpecialCard = false;
   isLoading = true;
   error: string | null = null;
+  playerHistory: Beer[] = [];
 
   private allBeers: Beer[] = [];
 
@@ -114,7 +117,7 @@ export class AppComponent implements OnInit {
     } else {
       this.generateRandomBeers();
     }
-
+    this.playerHistory.push(beer);
     this.messageDisplayComponent.loadMessage();
   }
 
@@ -182,6 +185,7 @@ export class AppComponent implements OnInit {
     this.shouldInsertSpecialCard = false;
     this.maxAlcohol = this.initialMaxAlcohol;
     this.generateRandomBeers();
+    this.playerHistory = [];
     this.messageDisplayComponent.loadMessage();
   }
 }

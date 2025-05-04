@@ -6,8 +6,13 @@ import { UserService } from '../../services/supabase/user.service';
   selector: 'app-high-score',
   standalone: true,
   template: `
-    <div class="text-sm font-bold text-white uppercase">
-      High Score: {{ currentHighScore }}
+    <div class="text-sm font-[560] tracking-[.08em] text-white capitalize">
+      <div
+        class="my-1.5 flex justify-between rounded-xl bg-amber-600 p-1.5 px-2.5 shadow-xl"
+      >
+        <div class="">{{ userName }}</div>
+        <div class="">{{ currentHighScore }}</div>
+      </div>
     </div>
   `,
   styleUrls: ['./high-score.component.css'],
@@ -15,19 +20,21 @@ import { UserService } from '../../services/supabase/user.service';
 export class HighScoreComponent implements OnInit {
   @Input() userId: string = 'd6b7129b-8ede-483c-90d6-e116a7f5ba3b';
   currentHighScore: number = 0;
+  userName: string = '';
 
   constructor(private userService: UserService) {}
 
   async ngOnInit(): Promise<void> {
-    await this.fetchHighScore();
+    await this.fetchUser();
   }
 
-  private async fetchHighScore(): Promise<void> {
+  private async fetchUser(): Promise<void> {
     if (!this.userId) return;
 
-    const score = await this.userService.getUserScore(this.userId);
-    if (score !== null) {
-      this.currentHighScore = score;
+    const user = await this.userService.getUser(this.userId);
+    if (user) {
+      this.currentHighScore = user.score ?? 0;
+      this.userName = user.name;
     }
   }
 

@@ -36,7 +36,7 @@ h3 {
 }
 
 .card {
-  @apply p-8 shadow-xl shadow-slate-950;
+  @apply p-6 shadow-xl shadow-slate-950/40;
 }
 
 .card-b {
