@@ -25,8 +25,8 @@ type GroupedBeer = {
         highlight: entry.name === latestBeerName,
       }"
     >
-      <div>{{ entry.count }} x {{ entry.name }}</div>
-      <div>{{ entry.alcohol ?? '—' }}</div>
+      <div>{{ entry.name }} {{ entry.alcohol ?? '' }}</div>
+      <div>{{ entry.count }}</div>
     </div>
   `,
   styles: [],
@@ -59,7 +59,7 @@ export class PlayerHistoryComponent {
     const regular = all
       .filter((b) => !b.isSpecial)
       .sort((a, b) => b.count - a.count)
-      .slice(0, 10); // ✅ max 10
+      .slice(0, 9);
     const special = all.filter((b) => b.isSpecial);
 
     return [...regular, ...special];
