@@ -27,6 +27,24 @@
   --container-8xl: 96rem;
   --font-inter-tight: "Inter Tight", sans-serif;
 }
+
+.highlight {
+  animation: highlightFlash 0.8s ease;
+  background-color: #f59e0b; /* Tailwind amber-500 */
+}
+
+@keyframes highlightFlash {
+  0% {
+    background-color: #f59e0b; /* amber-500 */
+  }
+  50% {
+    background-color: #ffb900; /* amber-400 για highlight */
+  }
+  100% {
+    background-color: #f59e0b; /* επιστροφή σε amber-500 */
+  }
+}
+
 body {
   @apply font-inter-tight bg-gradient-to-b from-slate-900 via-slate-700 via-60% to-slate-900 text-lg font-[460] select-none;
 }
@@ -90,4 +108,7 @@ h3 {
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
+}
+.beer-color {
+  @apply bg-gradient-to-br from-amber-500 from-0% via-yellow-500 via-40% to-amber-700 to-100%;
 }
