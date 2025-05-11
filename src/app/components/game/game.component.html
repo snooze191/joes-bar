@@ -110,7 +110,10 @@
       <div
         class="card col-span-4 row-span-2 rounded-r-4xl bg-gradient-to-b from-green-600 to-green-700 text-white"
       >
-        <h3 class="">Statistics</h3>
+        <div class="flex items-center justify-between">
+          <h3 class="">Statistics</h3>
+          <app-timer #timerRef></app-timer>
+        </div>
         <app-player-history
           [history]="playerHistory"
           [latestBeerName]="playerHistory.at(-1)?.name ?? null"
@@ -179,8 +182,12 @@
       </div>
 
       <div class="col-span-8 p-6">
+        <p class="mb-2 text-sm text-white">
+          Playtime: {{ elapsedTime }} seconds
+        </p>
         <h2 class="mb-4 text-3xl font-bold text-white">Game Over!</h2>
         <p class="mb-6 text-white">Try Again?</p>
+
         <button (click)="newGame()" class="btn">Start new Game</button>
         <app-beer-bubbles></app-beer-bubbles>
       </div>

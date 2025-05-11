@@ -18,7 +18,7 @@ type GroupedBeer = {
   template: `
     <div
       *ngFor="let entry of groupedHistory"
-      class="my-1.5 flex justify-between rounded-xl p-1.5 px-2.5 shadow transition-colors duration-300"
+      class="my-1.5 flex justify-between rounded-xl p-1.5 px-2.5 shadow transition-colors duration-100"
       [ngClass]="{
         'bg-green-700': !entry.isSpecial,
         'bg-sky-600': entry.isSpecial,

@@ -9,7 +9,8 @@ import { MessageDisplayComponent } from '../message-display/message-display.comp
 import { LoginComponent } from '../login/login.component';
 import { Observable } from 'rxjs';
 import { PlayerHistoryComponent } from '../player-history/player-history.component';
-import { SpecialBeerId, specialBeerIds } from '../../utils/special-beer.util'; // ✅ εισαγωγή
+import { SpecialBeerId, specialBeerIds } from '../../utils/special-beer.util';
+import { TimerComponent } from '../../timer/timer.component';
 
 type Beer = Database['public']['Tables']['beers']['Row'];
 
@@ -23,6 +24,7 @@ type Beer = Database['public']['Tables']['beers']['Row'];
     MessageDisplayComponent,
     LoginComponent,
     PlayerHistoryComponent,
+    TimerComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
@@ -31,6 +33,7 @@ export class GameComponent implements OnInit {
   @ViewChild(HighScoreComponent) highScoreComponent!: HighScoreComponent;
   @ViewChild(MessageDisplayComponent)
   messageDisplayComponent!: MessageDisplayComponent;
+  @ViewChild('timerRef') timerComponent!: TimerComponent;
 
   title = 'joesBar';
   beers$!: Observable<Beer[]>;
@@ -44,6 +47,7 @@ export class GameComponent implements OnInit {
   isLoading = true;
   error: string | null = null;
   playerHistory: Beer[] = [];
+  elapsedTime: number = 0;
 
   // Μεταβλητή για την πιο επιλεγμένη μπύρα
   singleBeerScore: {
@@ -133,6 +137,8 @@ export class GameComponent implements OnInit {
 
     if (this.getAlcoholPercentage() >= 100) {
       this.gameOver = true;
+      this.elapsedTime = this.timerComponent.getElapsedTime();
+      this.timerComponent.stop();
 
       await this.highScoreComponent.updateHighScoreIfNeeded(
         this.selectionCount,
@@ -264,6 +270,7 @@ export class GameComponent implements OnInit {
   }
 
   newGame(): void {
+    this.timerComponent.reset();
     this.totalAlcohol = 0;
     this.selectionCount = 0;
     this.gameOver = false;

@@ -29,11 +29,11 @@
 }
 
 .highlight {
-  animation: highlightFlash 0.8s ease;
+  animation: flash 0.9s ease-in-out 3;
   background-color: #f59e0b; /* Tailwind amber-500 */
 }
 
-@keyframes highlightFlash {
+@keyframes flash {
   0% {
     background-color: #f59e0b; /* amber-500 */
   }
