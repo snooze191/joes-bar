@@ -17,7 +17,8 @@ export class BeerService {
   async fetchAllBeers(): Promise<void> {
     const { data, error } = await this.supabase.client
       .from('beers')
-      .select('*');
+      .select('*')
+      .eq('active', true); // 👈 μόνο οι ενεργές μπύρες
 
     if (error) {
       console.error('Σφάλμα στη φόρτωση μπυρών:', error.message);

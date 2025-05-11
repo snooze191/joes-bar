@@ -45,6 +45,13 @@ export class GameComponent implements OnInit {
   error: string | null = null;
   playerHistory: Beer[] = [];
 
+  // Μεταβλητή για την πιο επιλεγμένη μπύρα
+  singleBeerScore: {
+    name: string;
+    count: number;
+    image: string | null;
+  } | null = null;
+
   private allBeers: Beer[] = [];
 
   constructor(private beerService: BeerService) {}
@@ -74,7 +81,6 @@ export class GameComponent implements OnInit {
 
     const addedSpecialIds = new Set<number>(); // Μόνο για special beers
 
-    // Αν πρέπει να εισάγουμε ειδική κάρτα
     if (this.shouldInsertSpecialCard) {
       const specialId = this.getRandomSpecialCardId();
       const specialBeer = this.allBeers.find((b) => b.id === specialId);
@@ -90,10 +96,8 @@ export class GameComponent implements OnInit {
     while (newRandomBeers.length < 3) {
       const randomBeer =
         this.allBeers[Math.floor(Math.random() * this.allBeers.length)];
-
       const isSpecial = specialBeerIds.has(randomBeer.id);
 
-      // Αν είναι special και υπάρχει ήδη, προσπέρασέ το
       if (isSpecial && addedSpecialIds.has(randomBeer.id)) {
         continue;
       }
@@ -108,28 +112,45 @@ export class GameComponent implements OnInit {
     this.randomBeers = [...newRandomBeers];
   }
 
-  selectBeer(beer: Beer): void {
+  async selectBeer(beer: Beer): Promise<void> {
     if (this.gameOver) return;
 
-    // Βρίσκουμε πόσες φορές υπάρχει η μπίρα στην τρέχουσα κλήρωση
     const duplicateCount = this.randomBeers.filter(
       (b) => b.id === beer.id,
     ).length;
 
-    // Εφαρμόζουμε την αντίστοιχη στρατηγική για τη μπίρα
     this.applyBeerEffect(beer, duplicateCount);
 
-    // Αν η αλκοόλη είναι πάνω από 5.5, εισάγουμε ειδική κάρτα
     if (beer.alcohol && beer.alcohol > 5.5) {
       this.shouldInsertSpecialCard = true;
     }
 
-    // Ρυθμίζουμε το ανώτατο όριο αλκοόλης
     this.adjustMaxAlcohol(beer);
 
-    // Αν φτάσουμε το 100% αλκοόλης, τελειώνει το παιχνίδι
+    for (let i = 0; i < duplicateCount; i++) {
+      this.playerHistory.push(beer);
+    }
+
     if (this.getAlcoholPercentage() >= 100) {
       this.gameOver = true;
+
+      await this.highScoreComponent.updateHighScoreIfNeeded(
+        this.selectionCount,
+      );
+
+      const mostSelected = this.mostSelectedBeer;
+      if (mostSelected) {
+        this.singleBeerScore = {
+          name: mostSelected.name,
+          count: mostSelected.count,
+          image: mostSelected.image,
+        };
+
+        await this.highScoreComponent.updateSingleBeerScoreIfNeeded(
+          mostSelected.count,
+        );
+      }
+
       this.highScoreComponent
         .updateHighScoreIfNeeded(this.selectionCount)
         .catch((err) => console.error('Σφάλμα αποθήκευσης high score:', err));
@@ -137,12 +158,6 @@ export class GameComponent implements OnInit {
       this.generateRandomBeers();
     }
 
-    // Προσθήκη της μπίρας στο ιστορικό με βάση το duplicateCount
-    for (let i = 0; i < duplicateCount; i++) {
-      this.playerHistory.push(beer); // Προσθέτουμε την μπίρα τόσες φορές όσο εμφανίζεται
-    }
-
-    // Φορτώνουμε μήνυμα
     this.messageDisplayComponent.loadMessage();
   }
 
@@ -241,6 +256,10 @@ export class GameComponent implements OnInit {
       (a, b) => b[1].count - a[1].count,
     );
     const [name, { count, image }] = sorted[0];
+
+    // Ενημέρωση του singleBeerScore με την πιο επιλεγμένη μπίρα
+    this.singleBeerScore = { name, count, image };
+
     return { name, count, image };
   }
 

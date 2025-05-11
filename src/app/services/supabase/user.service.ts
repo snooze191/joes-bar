@@ -41,4 +41,30 @@ export class UserService {
       console.error('Σφάλμα ενημέρωσης score:', error.message);
     }
   }
+  async updateSingleBeerScore(
+    userId: string,
+    newSingleScore: number,
+  ): Promise<void> {
+    const { error } = await this.supabase
+      .from('users')
+      .update({ singleBeerScore: newSingleScore } as UpdateUser)
+      .eq('id', userId);
+
+    if (error) {
+      console.error('Σφάλμα ενημέρωσης singleBeerScore:', error.message);
+    }
+  }
+
+  async updateSingleBeerScoreIfNeeded(
+    userId: string,
+    candidateScore: number,
+  ): Promise<void> {
+    const user = await this.getUser(userId);
+    if (!user) return;
+
+    const current = user.singleBeerScore ?? 0;
+    if (candidateScore > current) {
+      await this.updateSingleBeerScore(userId, candidateScore);
+    }
+  }
 }
